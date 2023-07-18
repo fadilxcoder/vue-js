@@ -4,22 +4,42 @@ import axios from 'axios';
 const app = createApp({
     data: function() {
         return {
-            users: []
+            books: []
         }
     },
     methods: {
-        getUsers: function() {
-            var route = 'http://users.php.sqlite.app.local/api';
+        getBooks: function() {
+            const route = 'http://sf6.inbuilt.app.local/api/';
             var thisObj = this;
-            axios.get(route)
+            const headers = {
+                "content-type": "application/json"
+            };
+            const graphqlQuery = {
+                "query": `
+                    query GetAllBooks {
+                        books {
+                            id, 
+                            title,
+                            genre
+                        }
+                    }
+                `,
+                "variables": {}
+            };
+            axios({
+                url: route,
+                method: 'POST',
+                header: headers,
+                data: graphqlQuery
+            })
             .then(function(response) {
-                thisObj.users = response.data.payload;
-                // console.log(response.data.payload);
+                thisObj.books = response.data.data.books;
+                //console.log(response);
             });
         }
     },
     created: function() {
-        this.getUsers();
+        this.getBooks();
     },
 });
 app.mount('#app');
