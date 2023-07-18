@@ -1,7 +1,7 @@
 const https = require('https');
 const fs = require('fs');
 const filePath = './src/vue.js';
-const jsonUrl = 'https://unpkg.com/vue@3.3.4/dist/vue.esm-browser.prod.js';
+const jsonUrl = 'https://unpkg.com/vue@3.3.4/dist/vue.esm-browser.js'; // ...browser.prod.js
 
 https.get(jsonUrl, (response) => {
     let data = '';

@@ -1,8 +1,6 @@
 # Notes
 
-
-Global build
-
+Vue app with axios - PHP API
 
 - Docs : https://vuejs.org/guide/quick-start.html
 - **Global Build** : `https://unpkg.com/vue@3.3.4/dist/vue.global.js`

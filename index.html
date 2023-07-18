@@ -4,10 +4,55 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>My Cave - Votre cave sur mesure</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+        <link rel="stylesheet" href="./dist/style.css" />
+        <title>My Vue Applet</title>
     </head>
     <body>
-        <div id="app">{{ message }}</div>
+        <nav class="navbar bg-dark">
+            <h1>
+                <a href="#">
+                <i class="fas fa-code"></i> My Vue Applet</a>
+            </h1>
+            <ul>
+                <li>
+                    <a href="#">Developers</a>
+                </li>
+                <li>
+                    <a href="#">Register</a>
+                </li>
+                <li>
+                    <a href="#">Login</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="app">
+            <section class="container">
+                <h1 class="large text-primary">Users</h1>
+                <p class="lead">
+                    <i class="fab fa-connectdevelop"></i> Browse and connect with human
+                </p>
+                <div class="profiles">
+
+                    <div class="profile bg-light"  v-for="user in users">
+                        <div>
+                            <h2>{{ user.name }}</h2>
+                            <p>{{ user.email }}</p>
+                            <a href="#" class="btn btn-primary">{{ user.phone }}</a>
+                        </div>
+                        <ul>
+                            <li class="text-primary">
+                                <i class="fas fa-check"></i> {{ user.password }}
+                            </li>
+                            <li class="text-primary">
+                                <i class="fas fa-check"></i> {{ user.token }}
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </div>
     </body>
     <script type="module" src="./dist/script.js"></script>
 </html>
